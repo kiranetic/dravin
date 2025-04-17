@@ -1,6 +1,7 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from pydantic import BaseModel
 from app.faq import faq_data
+from app.utils import get_best_match
 
 app = FastAPI()
 
@@ -9,8 +10,9 @@ class Message(BaseModel):
 
 @app.post("/chat")
 def chat(message: Message):
-    user_input = message.message.lower()
-    for question, answer in faq_data.items():
-        if question.lower() in user_input:
-            return {"reply": answer}
-    return {"reply": "Sorry, I didn't understand that. Can you please rephrase?"}
+    print("msg", message)
+    print("Msg", Message)
+    user_input = message.message
+    print("User input", user_input)
+    reply = get_best_match(user_input, faq_data)
+    return {"reply": reply}
