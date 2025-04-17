@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-transformers
-requests
-torch
-tensorflow
-python-dotenv

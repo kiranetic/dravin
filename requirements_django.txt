@@ -1,4 +1,0 @@
-django
-djangorestframework
-python-dotenv
-scikit-learn
