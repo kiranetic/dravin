@@ -3,7 +3,8 @@ import numpy as np
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-def get_best_match(user_input, faq_data, threshold=0.6):
+def get_best_match(user_input, faq_data, threshold=0.4):    # Threshold tuned based on test cases. Adjust if false positives increase.
+
     questions = []
     for entry in faq_data:
         questions.append(entry["question"])
