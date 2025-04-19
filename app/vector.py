@@ -1,7 +1,7 @@
+import uuid
 from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from sentence_transformers import SentenceTransformer
-import uuid
 
 from app.faq import faq_data
 from app.config import QDRANT_URL, QDRANT_API_KEY, COLLECTION_NAME

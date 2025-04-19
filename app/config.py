@@ -1,6 +1,6 @@
-from dotenv import load_dotenv
-from pathlib import Path
 import os
+from pathlib import Path
+from dotenv import load_dotenv
 
 
 # Load from project root .env
@@ -8,12 +8,14 @@ PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 ENV_FILE = PROJECT_ROOT / ".env"
 
 # Logging
-LOG_FILE = PROJECT_ROOT / "dlogs.jsonl"
-LOG_FILE.touch(exist_ok=True)
+JSON_LOG = PROJECT_ROOT / "dlogs.jsonl"
+CSV_LOG = PROJECT_ROOT / "dlogs.csv"
 
 
 load_dotenv(dotenv_path=ENV_FILE)
 
+# Timezone
+TZ = os.getenv("TIMEZONE", "UTC")
 
 # OpenAI
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
