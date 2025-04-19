@@ -1,18 +1,18 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from app.faq import faq_data
-from app.utils import get_best_match
+from app.vector import create_collection, index_faq, search_faq
 
 app = FastAPI()
 
 class Message(BaseModel):
     message: str
 
+@app.on_event("startup")
+def startup_event():
+    create_collection()
+    index_faq()
+
 @app.post("/chat")
 def chat(message: Message):
-    print("msg", message)
-    print("Msg", Message)
-    user_input = message.message
-    print("User input", user_input)
-    reply = get_best_match(user_input, faq_data)
+    reply = search_faq(message.message)
     return {"reply": reply}
