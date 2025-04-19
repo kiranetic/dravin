@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from app.vector import create_collection, index_faq, search_faq
 from app.fallback import gpt_fallback_response
 
+
 app = FastAPI()
 
 class Message(BaseModel):

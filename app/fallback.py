@@ -1,10 +1,9 @@
 from openai import OpenAI
 
-OPENAI_API_KEY = "your-api-key"
-OPENAI_MODEL = "gpt-4o-mini"
+from app.config import OPENAI_API_KEY, OPENAI_MODEL
+
 
 prompt = "You are an AI customer support assistant. Answer user questions in a helpful, polite, and concise way. If you don't know the answer, say so honestly."
-
 
 client = OpenAI(
     api_key=OPENAI_API_KEY,

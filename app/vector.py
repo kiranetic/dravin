@@ -2,16 +2,14 @@ from qdrant_client import QdrantClient
 from qdrant_client.models import Distance, VectorParams, PointStruct
 from sentence_transformers import SentenceTransformer
 import uuid
-from app.faq import faq_data
 
-# ---- Setup ----
-QDRANT_URL = "http://localhost:6333"
-QDRANT_API = "qdrant_api"
-COLLECTION_NAME = "dravin_faq"
+from app.faq import faq_data
+from app.config import QDRANT_URL, QDRANT_API_KEY, COLLECTION_NAME
+
 
 client = QdrantClient(
     url=QDRANT_URL,
-    api_key=QDRANT_API,
+    api_key=QDRANT_API_KEY,
 )
 
 model = SentenceTransformer("all-MiniLM-L6-v2")
