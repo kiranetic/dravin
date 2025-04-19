@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+
 from app.vector import create_collection, index_faq, search_faq
+from app.fallback import gpt_fallback_response
 
 app = FastAPI()
 
@@ -14,5 +16,10 @@ def startup_event():
 
 @app.post("/chat")
 def chat(message: Message):
-    reply = search_faq(message.message)
+    user_input = message.message
+    reply = search_faq(user_input)
+
+    if reply == "__fallback__":
+        reply = gpt_fallback_response(user_input)
+    
     return {"reply": reply}

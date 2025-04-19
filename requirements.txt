@@ -5,3 +5,4 @@ uvicorn
 pydantic
 numpy
 qdrant-client
+openai
