@@ -11,6 +11,9 @@ ENV_FILE = PROJECT_ROOT / ".env"
 JSON_LOG = PROJECT_ROOT / "dlogs.jsonl"
 CSV_LOG = PROJECT_ROOT / "dlogs.csv"
 
+# Templates
+TEMPLATE_DIR = PROJECT_ROOT / "app/templates"
+
 
 load_dotenv(dotenv_path=ENV_FILE)
 

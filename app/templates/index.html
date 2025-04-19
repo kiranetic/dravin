@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dravin - AI Chatbot</title>
+  <style>
+    body { font-family: sans-serif; max-width: 600px; margin: 50px auto; padding: 10px; }
+    h1 { text-align: center; }
+    textarea, input, button { width: 100%; margin-top: 10px; padding: 10px; font-size: 1em; }
+    #responseBox { margin-top: 20px; padding: 10px; background: #f2f2f2; border-radius: 5px; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+  <h1>🤖 Dravin</h1>
+  <textarea id="query" rows="3" placeholder="Ask something..."></textarea>
+  <button onclick="askDravin()">Ask</button>
+  <div id="responseBox"></div>
+
+  <script>
+    async function askDravin() {
+      const message = document.getElementById('query').value.trim();
+      if (!message) return;
+
+      document.getElementById('responseBox').innerText = "Thinking...";
+      try {
+        const res = await fetch("/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message })
+        });
+        const data = await res.json();
+        document.getElementById('responseBox').innerText = data.reply;
+      } catch (err) {
+        document.getElementById('responseBox').innerText = "Something went wrong. Try again.";
+        console.error(err);
+      }
+    }
+  </script>
+</body>
+</html>

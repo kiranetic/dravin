@@ -1,16 +1,27 @@
-from fastapi import FastAPI
+from pathlib import Path
+from fastapi import FastAPI, Request
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 
 from app.vector import create_collection, index_faq, search_faq
 from app.fallback import gpt_fallback_response
 from app.logger import log_response
 from app.meta import APP_METADATA
+from app.config import TEMPLATE_DIR
 
 
 app = FastAPI()
 
+templates = Jinja2Templates(directory=str(TEMPLATE_DIR))
+
 class Message(BaseModel):
     message: str
+
+
+@app.get("/", response_class=HTMLResponse)
+def home(request: Request):
+    return templates.TemplateResponse("index.html", {"request": request})
 
 
 @app.get("/health")
