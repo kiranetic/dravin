@@ -4,7 +4,7 @@ from qdrant_client.models import Distance, VectorParams, PointStruct
 from sentence_transformers import SentenceTransformer
 
 from app.faq import faq_data
-from app.config import QDRANT_URL, QDRANT_API_KEY, COLLECTION_NAME
+from app.config import QDRANT_URL, QDRANT_API_KEY, COLLECTION_NAME, EMBEDDING_MODEL
 
 
 client = QdrantClient(
@@ -12,7 +12,9 @@ client = QdrantClient(
     api_key=QDRANT_API_KEY,
 )
 
-model = SentenceTransformer("all-MiniLM-L6-v2")
+model = SentenceTransformer(EMBEDDING_MODEL)
+print(f"📦 Loaded embedding model: {EMBEDDING_MODEL}")
+
 
 # ---- Create Collection ----
 def create_collection():

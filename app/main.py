@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from app.vector import create_collection, index_faq, search_faq
 from app.fallback import gpt_fallback_response
 from app.logger import log_response
+from app.meta import APP_METADATA
 
 
 app = FastAPI()
@@ -11,10 +12,22 @@ app = FastAPI()
 class Message(BaseModel):
     message: str
 
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
+
+
+@app.get("/info")
+def app_info():
+    return APP_METADATA
+
+
 @app.on_event("startup")
 def startup_event():
     create_collection()
     index_faq()
+
 
 @app.post("/chat")
 def chat(message: Message):
