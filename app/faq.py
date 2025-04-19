@@ -1,14 +1,22 @@
 faq_data = [
-    {
-        "question": "reset password",
-        "answer": "To reset your password, click on 'Forgot Password' at the login page."
-    },
-    {
-        "question": "cancel order",
-        "answer": "You can cancel your order within 24 hours of placing it from the Orders section."
-    },
-    {
-        "question": "refund policy",
-        "answer": "Refunds are processed within 5-7 business days after cancellation."
-    }
+    {"question": "reset password", "answer": "To reset your password, click on 'Forgot Password' at the login page."},
+    {"question": "cancel order", "answer": "You can cancel your order within 24 hours from the Orders section."},
+    {"question": "refund policy", "answer": "Refunds are issued within 5-7 business days after cancellation."},
+    {"question": "track order", "answer": "Go to 'My Orders' and click 'Track' next to your item."},
+    {"question": "change shipping address", "answer": "You can change your shipping address before the item is shipped."},
+    {"question": "delivery time", "answer": "Delivery takes 3–5 business days depending on your location."},
+    {"question": "payment options", "answer": "We accept credit/debit cards, UPI, wallets, and net banking."},
+    {"question": "emi option", "answer": "EMI is available on purchases above ₹5,000 with select cards."},
+    {"question": "return policy", "answer": "You can return a product within 10 days if it is unused and in original packaging."},
+    {"question": "product warranty", "answer": "Warranty details are mentioned on the product page."},
+    {"question": "create account", "answer": "Click on 'Sign Up' at the top-right and fill in the required details."},
+    {"question": "login issues", "answer": "If you're unable to login, reset your password or contact support."},
+    {"question": "out of stock", "answer": "Click 'Notify Me' to get alerts when the product is back in stock."},
+    {"question": "cancel subscription", "answer": "To cancel your subscription, go to Account > Subscriptions > Cancel."},
+    {"question": "update email", "answer": "You can update your email from Account Settings."},
+    {"question": "apply coupon", "answer": "Use the coupon code at checkout in the 'Promo Code' field."},
+    {"question": "invoice request", "answer": "Invoices are available under 'My Orders' for each purchase."},
+    {"question": "lost package", "answer": "If your package is lost, raise a complaint via the 'Help' section."},
+    {"question": "international shipping", "answer": "We currently ship only within India. Stay tuned for updates."},
+    {"question": "multiple addresses", "answer": "You can save multiple addresses under 'My Account > Addresses'."}
 ]
