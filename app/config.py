@@ -7,6 +7,11 @@ import os
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 ENV_FILE = PROJECT_ROOT / ".env"
 
+# Logging
+LOG_FILE = PROJECT_ROOT / "dlogs.jsonl"
+LOG_FILE.touch(exist_ok=True)
+
+
 load_dotenv(dotenv_path=ENV_FILE)
 
 

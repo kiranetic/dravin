@@ -1,9 +1,6 @@
-sentence-transformers
-torch
-fastapi
 uvicorn
-pydantic
-numpy
+fastapi
 qdrant-client
-openai
+sentence-transformers
 python-dotenv
+openai

@@ -58,5 +58,9 @@ def search_faq(user_input, threshold=0.4):
     )
 
     if hits:
-        return hits[0].payload["answer"]
-    return "Sorry, I didn't understand that. Can you please rephrase."
+        answer = hits[0].payload["answer"]
+        score = hits[0].score
+        return answer, score
+
+    return "__fallback__", None
+
